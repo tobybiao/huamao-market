@@ -78,34 +78,6 @@ public class MarketProductServiceImpl implements MarketProductService {
     public List<VMarketGoodsListNode> findAll() {
         List<MarketProduct> dbMarketProductList = this.marketProductRepository.findAll();
         List<VMarketGoodsListNode> vMarketGoodsList = this.MarketProductListToVMarketGoodsList(dbMarketProductList);
-//        for (MarketProduct marketProduct: dbMarketProductList) {
-//            VMarketGoodsListNode marketGoodsListNode = new VMarketGoodsListNode();
-//            marketGoodsListNode.setId(marketProduct.getId());
-//            // 设置分类
-//            // 商品直接父分类
-//            marketGoodsListNode.setPrimaryCategory(marketProduct.getCategory());
-//            // 祖先分类，不含直接分类
-//            marketGoodsListNode.setCategoryAncestors(marketProduct.getCategoryAncestors());
-//            List<String> categoryIds = new ArrayList<>();
-//            List<String> categoryNameList = new ArrayList<>();
-//            for(Map<String, String> categoryIdAndNameMap: marketGoodsListNode.getCategoryAncestors()) {
-//                categoryIds.add(categoryIdAndNameMap.get("id"));
-//                categoryNameList.add(categoryIdAndNameMap.get("name"));
-//            }
-//            categoryIds.add(marketGoodsListNode.getPrimaryCategory().get("id"));
-//            categoryNameList.add(marketGoodsListNode.getPrimaryCategory().get("name"));
-//            marketGoodsListNode.setCategory(categoryIds);
-//            marketGoodsListNode.setCategoryLabel(categoryNameList);
-//
-//            marketGoodsListNode.setName(marketProduct.getName());
-//            marketGoodsListNode.setDescription(marketProduct.getDescription());
-//            marketGoodsListNode.setSku(marketProduct.getSku());
-//            marketGoodsListNode.setPricing(marketProduct.getPricing());
-//            marketGoodsListNode.setImgs(marketProduct.getImgs());
-//            marketGoodsListNode.setTags(marketProduct.getTags());
-//            marketGoodsListNode.setThumbs(marketProduct.getThumbs());
-//            vMarketGoodsList.add(marketGoodsListNode);
-//        }
         logger.info("所有商品信息：" + vMarketGoodsList);
         return vMarketGoodsList;
     }

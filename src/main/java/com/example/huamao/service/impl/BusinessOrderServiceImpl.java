@@ -81,11 +81,6 @@ public class BusinessOrderServiceImpl implements BusinessOrderService {
     public Map<String, Object> findAllByPage(String businessId, int pageIndex, int pageSize) {
         Map<String,Object> result = new HashMap<>();
         Pageable pageable = new PageRequest(pageIndex, pageSize);
-//        BusinessOrder businessOrder = new BusinessOrder();
-//        businessOrder.setBusinessId(businessId);
-//        ExampleMatcher matcher = ExampleMatcher.matching().withMatcher("businessId", match -> match.equals(businessId));
-//        ExampleMatcher matcher = ExampleMatcher.matching();
-//        Example<BusinessOrder> businessOrderExample = Example.of(businessOrder, matcher);
         Page<BusinessOrder> businessOrderPage = this.businessOrderRepository.findByBusinessId(businessId, pageable);
         result.put("totalElements", businessOrderPage.getTotalElements());
         result.put("totalPages", businessOrderPage.getTotalPages());

@@ -34,35 +34,6 @@ public class MarketGoodsParamsTemplateServiceImpl implements MarketGoodsParamsTe
      */
     @Override
     public List<ParamTemplateNode> getInformationByCategoryId(String categoryId) {
-//        List<ParamTemplateNode> resultList = new ArrayList<>();
-//
-//        ParamTemplateNode node = new ParamTemplateNode();
-//        node.setGroup("主体");
-//        List<Map<String, String>> paramKeyAndValueList = new ArrayList<>();
-//        Map<String, String> paramKeyAndValue = new HashMap<>();
-//        paramKeyAndValue.put("key", "保质期");
-//        paramKeyAndValue.put("value", "");
-//        paramKeyAndValueList.add(paramKeyAndValue);
-//        Map<String, String> paramKeyAndValue2 = new HashMap<>();
-//        paramKeyAndValue2.put("key", "净含量");
-//        paramKeyAndValue2.put("value", "2.6kg");
-//        paramKeyAndValueList.add(paramKeyAndValue2);
-//        node.setParams(paramKeyAndValueList);
-//        resultList.add(node);
-//
-//        ParamTemplateNode node2 = new ParamTemplateNode();
-//        node2.setGroup("特色功能");
-//        List<Map<String, String>> paramKeyAndValueList2 = new ArrayList<>();
-//        Map<String, String> paramKeyAndValue22 = new HashMap<>();
-//        paramKeyAndValue22.put("key", "保质期2");
-//        paramKeyAndValue22.put("value", "");
-//        paramKeyAndValueList2.add(paramKeyAndValue22);
-//        Map<String, String> paramKeyAndValue23 = new HashMap<>();
-//        paramKeyAndValue23.put("key", "净含量2");
-//        paramKeyAndValue23.put("value", "2.6kg");
-//        paramKeyAndValueList2.add(paramKeyAndValue23);
-//        node2.setParams(paramKeyAndValueList);
-//        resultList.add(node2);
         List<ParamTemplateNode> resultList = new ArrayList<>();
         MarketProductCategory marketProductCategory = this.marketProductCategoryRepository.findOne(categoryId);
         ArrayList<ParamTemplate> paramTemplates = marketProductCategory.getParamTemplates();

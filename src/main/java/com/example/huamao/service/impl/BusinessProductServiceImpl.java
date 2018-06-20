@@ -47,37 +47,6 @@ public class BusinessProductServiceImpl implements BusinessProductService {
         businessProduct.setSku(IDUtils.genBusinessGoodsSku());
         businessProduct.setPricing(viewBusinessGoods.getPricing());
         businessProduct.setDetails(viewBusinessGoods.getDetails());
-
-        // 设置商品分类
-//        List<String> categoryList = viewBusinessGoods.getCategory();// 包含所有分类的id和name
-//        // 设置祖先分类，不含直接分类
-//        List<Map<String, String>> categoryAncestors = new ArrayList<>();
-//        for (int i = 0; i < categoryList.size() -1; i++) {
-//            String[] categoryIdAndNameArr = categoryList.get(i).split("\\|"); // 数据格式  5b10288adef074e5b86fec8a|男装
-//            if(2 != categoryIdAndNameArr.length) {
-//                // 分类格式不正确
-//                logger.error("视图层传来的分类格式不正确");
-//                throw new RuntimeException("视图层传来的分类格式不正确");
-//            } else {
-//                Map<String, String> categoryAncestor = new HashMap<>();
-//                categoryAncestor.put("id", categoryIdAndNameArr[0]);
-//                categoryAncestor.put("name", categoryIdAndNameArr[1]);
-//                categoryAncestors.add(categoryAncestor);
-//            }
-//        }
-//        businessProduct.setCategoryAncestors(categoryAncestors);
-//        // 设置直接分类
-//        Map<String, String> dirCategoryIdAndNameMap = new HashMap<>();
-//        String[] categoryIdAndNameArr = categoryList.get(categoryList.size() - 1).split("\\|");
-//        if(2 != categoryIdAndNameArr.length) {
-//            // 分类格式不正确
-//            logger.error("视图层传来的分类格式不正确");
-//            throw new RuntimeException("视图层传来的分类格式不正确");
-//        } else {
-//            dirCategoryIdAndNameMap.put("id", categoryIdAndNameArr[0]);
-//            dirCategoryIdAndNameMap.put("name", categoryIdAndNameArr[1]);
-//            businessProduct.setCategory(dirCategoryIdAndNameMap);
-//        }
         // 设置商品分类
         this.changeCategoryFromView(businessProduct, viewBusinessGoods.getCategory());
         this.businessProductRepository.save(businessProduct);

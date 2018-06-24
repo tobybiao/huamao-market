@@ -95,9 +95,6 @@ public class BusinessCategoryServiceImpl implements BusinessCategoryService {
                 if(businessCategory.isParent()) {
                     // 含有子分类
                     resultNode.put("children", this.getBusinessCategoryItemParentId(businessCategory.getId()));
-                } else {
-                    // 不含子分类
-                    resultNode.put("children", null);
                 }
             } else {
                 // 顶层分类

@@ -125,6 +125,9 @@ public class MarketProductCategoryServiceImpl implements MarketProductCategorySe
             if(item.getParentId() != null) {
                 if(item.isParent()) { // 含有子分类
                     node.setChildren(this.getMarketProductCategoryItemByParentId(item.getId()));
+                } else {
+                    // 不含有子分类
+                    node.setChildren(new ArrayList<>());
                 }
             } else {
                 // 顶层分类
